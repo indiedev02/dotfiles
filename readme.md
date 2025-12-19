@@ -1,7 +1,3 @@
-Here’s the **improved version of your Markdown**, with the required **post-Homebrew setup step added**, cleaned up formatting, and made user-agnostic (no hard-coded username).
-
----
-
 # 🖥️ MacBook Setup Guide
 
 A quick guide to get your MacBook ready for development.
@@ -40,7 +36,7 @@ Homebrew is the package manager for macOS.
 
 ### Configure Homebrew Environment (Apple Silicon)
 
-After installation, run the following commands to add Homebrew to your shell:
+After installation, add Homebrew to your shell environment:
 
 ```bash
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
@@ -72,9 +68,7 @@ Starship is a fast and customizable shell prompt.
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-Add it to your shell config:
-
-**Zsh (`~/.zshrc`):**
+Add Starship to your shell configuration:
 
 ```bash
 eval "$(starship init zsh)"
@@ -86,7 +80,7 @@ Restart your terminal to apply changes.
 
 ### Install Ghostty Terminal
 
-Ghostty is a modern terminal emulator.
+Ghostty is a modern, fast terminal emulator.
 
 ```bash
 brew install --cask ghostty
@@ -94,3 +88,65 @@ brew install --cask ghostty
 
 ---
 
+### Install GNU Stow
+
+GNU Stow helps manage dotfiles using symlinks.
+
+```bash
+brew install stow
+```
+
+---
+
+### Install Neovim
+
+Neovim is a powerful, extensible terminal-based text editor.
+
+```bash
+brew install neovim
+```
+
+Verify installation:
+
+```bash
+nvim --version
+```
+
+---
+
+### Install tmux
+
+tmux is a terminal multiplexer for managing multiple sessions and panes.
+
+```bash
+brew install tmux
+```
+
+Verify installation:
+
+```bash
+tmux -V
+```
+
+---
+
+## 🔗 Apply Dotfiles with Stow
+
+Once all tools are installed and your dotfiles repository is cloned, run the following **from the root of your dotfiles directory**:
+
+```bash
+stow .
+```
+
+This will symlink all configured dotfiles into your home directory.
+
+---
+
+## ✅ Optional Next Steps
+
+### Configure Git
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+```
