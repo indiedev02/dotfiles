@@ -65,15 +65,8 @@ Raycast is a productivity launcher for macOS.
 Starship is a fast and customizable shell prompt.
 
 ```bash
-curl -sS https://starship.rs/install.sh | sh
+brew install starship
 ```
-
-Add Starship to your shell configuration:
-
-```bash
-eval "$(starship init zsh)"
-```
-
 Restart your terminal to apply changes.
 
 ---
