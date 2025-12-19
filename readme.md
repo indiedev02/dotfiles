@@ -67,7 +67,12 @@ Starship is a fast and customizable shell prompt.
 ```bash
 brew install starship
 ```
-Restart your terminal to apply changes.
+Then add Starship to your shell config:
+```bash
+eval "$(starship init zsh)"
+```
+
+Restart your terminal to apply changes
 
 ---
 
