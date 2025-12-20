@@ -112,6 +112,22 @@ nvim --version
 
 ---
 
+### Install Bash 
+
+Newer version of bash is required for some tmux plugins to work properly
+
+```bash
+brew install bash
+```
+
+Verify installation:
+
+```bash
+bash -V
+```
+
+---
+
 ### Install tmux
 
 tmux is a terminal multiplexer for managing multiple sessions and panes.
