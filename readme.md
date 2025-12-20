@@ -148,3 +148,21 @@ This will symlink all configured dotfiles into your home directory.
 git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
 ```
+
+
+### Install Zoxide
+
+zoxide is a smarter cd command, inspired by z and autojump.
+
+```bash
+brew install zoxide 
+```
+
+Then add zoxide to your shell config:
+```bash
+eval "$(zoxide init zsh)"
+```
+
+Restart your terminal to apply changes
+
+---
