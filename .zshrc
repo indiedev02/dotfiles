@@ -4,10 +4,6 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-# ───────────────────────────────────────────────
-# Conda (fast shell hook)
-# ───────────────────────────────────────────────
-eval "$(conda shell.zsh hook)"
 
 # ───────────────────────────────────────────────
 # NVM (Node Version Manager)
@@ -48,3 +44,11 @@ alias l='lsd -l'
 alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
+
+# ───────────────────────────────────────────────
+# Myvim aliases
+# ───────────────────────────────────────────────
+
+alias myvim='NVIM_APPNAME="myvim" nvim'
+
+
