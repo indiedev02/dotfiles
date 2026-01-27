@@ -165,6 +165,7 @@ git config --global user.name "Your Name"
 git config --global user.email "your_email@example.com"
 ```
 
+---
 
 ### Install Zoxide
 
@@ -180,5 +181,37 @@ eval "$(zoxide init zsh)"
 ```
 
 Restart your terminal to apply changes
+
+---
+
+### Install Aerospace (macOS Tiling Window Manager)
+
+Aerospace is a lightweight tiling window manager for macOS, inspired by i3.
+
+Install Aerospace using Homebrew:
+
+```bash
+brew install --cask aerospace
+```
+
+After installation, launch **Aerospace** from your Applications folder (or Spotlight).
+
+On first launch, macOS will prompt you to grant required permissions:
+
+1. **Accessibility**
+
+   * Go to **System Settings → Privacy & Security → Accessibility**
+   * Enable **Aerospace**
+
+2. **Screen Recording** (if prompted)
+
+   * Go to **System Settings → Privacy & Security → Screen Recording**
+   * Enable **Aerospace**
+   * Restart Aerospace after granting permissions
+
+Once running, Aerospace will automatically manage your windows.
+You can customize keybindings and behavior via its configuration file.
+
+Restart Aerospace (or log out and back in) to apply any config changes.
 
 ---
