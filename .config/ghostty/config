@@ -1,28 +1,4 @@
+keybind=ctrl+a=reload_config
 font-family="SFMono Nerd Font"
 font-size=16
-
-palette = 0=#2A224A
-palette = 1=#FF2E88
-palette = 2=#00FF9C
-palette = 3=#FFD60A
-palette = 4=#5CB8FF
-palette = 5=#FF7BFF
-palette = 6=#00E5FF
-palette = 7=#E6D9FF
-palette = 8=#6A5ACD
-palette = 9=#FF5CA8
-palette = 10=#4DFFB8
-palette = 11=#FFEE55
-palette = 12=#8FD0FF
-palette = 13=#FF9DFF
-palette = 14=#5CFFF0
-palette = 15=#FFFFFF
-
-background = #1F0142
-foreground = #EED9FF
-cursor-color = #EED9FF
-cursor-text = #1F0142
-selection-background = #EED9FF
-selection-foreground = #1F0142
-
-split-divider-color = 313244
+theme = cosmic-void.conf
