@@ -2,7 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
-format = "$os$directory$character"
+format = "$directory$character"
 right_format = "$all"
 
 [directory]
