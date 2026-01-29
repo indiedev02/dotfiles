@@ -1,9 +1,12 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = "$directory"
-add_newline = true
+add_newline = false
+format = "$os$directory$character"
+right_format = "$all"
+
+[directory]
+truncation_length = 1
 
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+format = "[􂨬 ](bold green) "
