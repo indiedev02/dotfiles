@@ -1,6 +1,10 @@
 #!/bin/bash
 
-source "$CONFIG_DIR/colors.sh"
+BAR_COLOR=0xff1F0142
+SPACE_ITEM=0xff521E92
+ACTIVE_BG=0xff9252d5
+WIDGET_BG=0x14EED8FF
+TEXT_COLOR=0xffEED8FF
 
 # This is a demo config to showcase some of the most important commands.
 # It is meant to be changed and configured, as it is intentionally kept sparse.
@@ -18,15 +22,15 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 bar=(
   position=left
-  height=42
+  height=46
   margin=10
   corner_radius=12
   blur_radius=30
   color=$BAR_COLOR
   display=main
   y_offset=10
-  padding_right=4
-  padding_left=4
+  padding_right=6
+  padding_left=6
 )
 
 sketchybar --bar "${bar[@]}"
@@ -41,7 +45,7 @@ default=(
   icon.color=$TEXT_COLOR
   label.color=$TEXT_COLOR
   background.color=$WIDGET_BG
-  background.corner_radius=8
+  background.corner_radius=6
   background.height=34
   width=34
   icon.padding_left=5
@@ -53,6 +57,19 @@ sketchybar --default "${default[@]}"
 display_count=$(aerospace list-monitors --count)
 ui_display_count=1
 
+sketchybar --add event aerospace_workspace_change
+# for sid in $(aerospace list-workspaces --all); do
+#   sketchybar --add item space.$sid left \
+#     --subscribe space.$sid aerospace_workspace_change \
+#     --set space.$sid \
+#     background.color=0x44ffffff \
+#     background.corner_radius=5 \
+#     background.height=20 \
+#     background.drawing=off \
+#     label="$sid" \
+#     click_script="aerospace workspace $sid" \
+#     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+# done
 while [ "$ui_display_count" -le "$display_count" ]; do
   # Monitor icon
   sketchybar --add item "mon.$ui_display_count" center \
@@ -66,9 +83,12 @@ while [ "$ui_display_count" -le "$display_count" ]; do
       width=8 \
       background.color=$BAR_COLOR
 
-    sketchybar --add item "space.$ui_display_count.$sid" center \
-      --set "space.$ui_display_count.$sid" \
-      icon="$sid"
+    sketchybar --add item "space.$sid" center \
+      --subscribe "space.$sid" aerospace_workspace_change \
+      --set "space.$sid" \
+      icon="$sid" \
+      background.color=$SPACE_ITEM \
+      script="$PLUGIN_DIR/aerospace.sh $sid"
 
   done
 

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export BAR_COLOR=0xff1F0142
-export SPACE_ITEM_BG=0xff521E92
-export WIDGET_BG=0x14EED8FF
-export TEXT_COLOR=0xffEED8FF
