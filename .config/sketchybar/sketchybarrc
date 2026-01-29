@@ -4,6 +4,7 @@ BAR_COLOR=0xff1F0142
 SPACE_ITEM=0xff521E92
 ACTIVE_BG=0xff9252d5
 WIDGET_BG=0x14EED8FF
+BORDER_COLOR=0x20EED8FF
 TEXT_COLOR=0xffEED8FF
 
 # This is a demo config to showcase some of the most important commands.
@@ -22,10 +23,12 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 bar=(
   position=left
-  height=46
+  height=52
   margin=10
   corner_radius=12
   blur_radius=30
+  border_color=$BORDER_COLOR
+  border_width=2
   color=$BAR_COLOR
   display=main
   y_offset=10
@@ -46,6 +49,8 @@ default=(
   icon.color=$TEXT_COLOR
   label.color=$TEXT_COLOR
   background.color=$WIDGET_BG
+  background.border_color=$BORDER_COLOR
+  background.border_width=2
   background.corner_radius=6
   background.height=34
   width=34
@@ -67,7 +72,8 @@ for sid in $(aerospace list-workspaces --all); do
   sketchybar --add item "sep.$sid" center \
     --set "sep.$sid" \
     width=8 \
-    background.color=$BAR_COLOR
+    background.color=$BAR_COLOR \
+    background.border_width=0
 
   sketchybar --add item "space.$sid" center \
     --subscribe "space.$sid" aerospace_workspace_change \
