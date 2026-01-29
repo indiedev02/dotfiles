@@ -30,6 +30,7 @@ bar=(
   display=main
   y_offset=10
   padding_right=6
+  blur_radius=8
   padding_left=6
 )
 

@@ -47,15 +47,63 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6"]
 
 [workspace-to-monitor-force-assignment]
 # A callback that runs every time binding mode changes1 = 'main'
 2 = 'main'
-3 = 'secondary'
+3 = 'main'
+4 = "secondary"
+5 = "secondary"
+6 = "secondary"
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
+
+
+[[on-window-detected]]
+if.app-name-regex-substring = "Finder"
+run = "layout floating"
+
+
+# Workspace 1 — Terminal
+[[on-window-detected]]
+if.app-name-regex-substring = "Ghostty"
+run = "move-node-to-workspace 1"
+
+
+# Workspace 2 — Design / Media
+[[on-window-detected]]
+if.app-name-regex-substring = "Figma"
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-name-regex-substring = "Logic"
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-name-regex-substring = "Final Cut"
+run = "move-node-to-workspace 2"
+
+
+# Workspace 4 — Comms / Project Mgmt
+[[on-window-detected]]
+if.app-name-regex-substring = "Teams"
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-name-regex-substring = "ClickUp"
+run = "move-node-to-workspace 4"
+
+
+# Workspace 5 — Notes / Knowledge
+[[on-window-detected]]
+if.app-name-regex-substring = "Obsidian"
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-name-regex-substring = "Notion"
+run = "move-node-to-workspace 5"
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -73,7 +121,7 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 10
 inner.vertical = 10
-outer.left = 64
+outer.left = 66
 outer.bottom = 10
 outer.top = 10
 outer.right = 10
