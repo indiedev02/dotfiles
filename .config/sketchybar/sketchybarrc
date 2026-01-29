@@ -55,53 +55,27 @@ default=(
 )
 sketchybar --default "${default[@]}"
 
-display_count=$(aerospace list-monitors --count)
-ui_display_count=1
-
 sketchybar --add event aerospace_workspace_change
-# for sid in $(aerospace list-workspaces --all); do
-#   sketchybar --add item space.$sid left \
-#     --subscribe space.$sid aerospace_workspace_change \
-#     --set space.$sid \
-#     background.color=0x44ffffff \
-#     background.corner_radius=5 \
-#     background.height=20 \
-#     background.drawing=off \
-#     label="$sid" \
-#     click_script="aerospace workspace $sid" \
-#     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
-# done
-while [ "$ui_display_count" -le "$display_count" ]; do
-  # Monitor icon
-  sketchybar --add item "mon.$ui_display_count" center \
-    --set "mon.$ui_display_count" \
-    icon="􀢹"
-  # Spaces
-  for sid in $(aerospace list-workspaces --monitor "$ui_display_count"); do
 
-    sketchybar --add item "sep.$ui_display_count.$sid" center \
-      --set "sep.$ui_display_count.$sid" \
-      width=8 \
-      background.color=$BAR_COLOR
+# Monitor icon
+sketchybar --add item "mon.$ui_display_count" center \
+  --set "mon.$ui_display_count" \
+  icon="􀢹"
+# Spaces
+for sid in $(aerospace list-workspaces --all); do
 
-    sketchybar --add item "space.$sid" center \
-      --subscribe "space.$sid" aerospace_workspace_change \
-      --set "space.$sid" \
-      icon="$sid" \
-      background.color=$SPACE_ITEM \
-      script="$PLUGIN_DIR/aerospace.sh $sid"
+  sketchybar --add item "sep.$sid" center \
+    --set "sep.$sid" \
+    width=8 \
+    background.color=$BAR_COLOR
 
-  done
+  sketchybar --add item "space.$sid" center \
+    --subscribe "space.$sid" aerospace_workspace_change \
+    --set "space.$sid" \
+    icon="$sid" \
+    background.color=$SPACE_ITEM \
+    script="$PLUGIN_DIR/aerospace.sh $sid"
 
-  # Separator (except after last display)
-  if [ "$ui_display_count" -lt "$display_count" ]; then
-    sketchybar --add item "sep.$ui_display_count" center \
-      --set "sep.$ui_display_count" \
-      width=12 \
-      background.color=$BAR_COLOR
-  fi
-
-  ui_display_count=$((ui_display_count + 1))
 done
 
 sketchybar --update
