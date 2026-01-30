@@ -32,8 +32,8 @@ bar=(
   color=$BAR_COLOR
   display=main
   y_offset=10
-  padding_left=10
-  padding_right=10
+  padding_left=12
+  padding_right=12
   font_smoothing=on
 )
 
@@ -88,7 +88,7 @@ sketchybar --add item day left \
   background.color=$TRANSPARENT \
   background.border_color=$TRANSPARENT \
   padding_right=8 \
-  padding_left=12 \
+  padding_left=8 \
   label.padding_right=8 \
   label.padding_left=8 \
   background.height=14 \
