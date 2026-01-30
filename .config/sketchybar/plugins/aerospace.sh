@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ITEM=0xff521E92
+ITEM_BG=0x14EED8FF
 ACTIVE_BG=0xff9252d5
 
 echo "called with $1"
@@ -13,5 +13,5 @@ if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 else
   sketchybar --set "$NAME" \
     background.drawing=on \
-    background.color="$SPACE_ITEM"
+    background.color="$ITEM_BG"
 fi

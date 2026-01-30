@@ -1,9 +1,8 @@
 #!/bin/bash
 
 BAR_COLOR=0xff1F0142
-SPACE_ITEM=0xff521E92
 ACTIVE_BG=0xff9252d5
-WIDGET_BG=0x14EED8FF
+ITEM_BG=0x14EED8FF
 BORDER_COLOR=0x20EED8FF
 TEXT_COLOR=0xffEED8FF
 
@@ -48,7 +47,7 @@ default=(
   label.font="SF Pro:Bold:14.0"
   icon.color=$TEXT_COLOR
   label.color=$TEXT_COLOR
-  background.color=$WIDGET_BG
+  background.color=$ITEM_BG
   background.border_color=$BORDER_COLOR
   background.border_width=2
   background.corner_radius=6
@@ -62,10 +61,6 @@ sketchybar --default "${default[@]}"
 
 sketchybar --add event aerospace_workspace_change
 
-# Monitor icon
-sketchybar --add item "mon.$ui_display_count" center \
-  --set "mon.$ui_display_count" \
-  icon="􀢹"
 # Spaces
 for sid in $(aerospace list-workspaces --all); do
 
@@ -79,8 +74,7 @@ for sid in $(aerospace list-workspaces --all); do
     --subscribe "space.$sid" aerospace_workspace_change \
     --set "space.$sid" \
     icon="$sid" \
-    background.color=$SPACE_ITEM \
-    script="$PLUGIN_DIR/aerospace.sh $sid"
+    background.color=$ITEM_BG script="$PLUGIN_DIR/aerospace.sh $sid"
 
 done
 
