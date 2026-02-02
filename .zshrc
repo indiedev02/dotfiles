@@ -52,3 +52,4 @@ alias lt='lsd --tree'
 alias myvim='NVIM_APPNAME="myvim" nvim'
 
 
+neofetch
